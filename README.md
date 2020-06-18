@@ -6,6 +6,11 @@ I hate computers.
 
 This took me 6 hours to get right, so here are, as of June 18, 2020, the steps for getting a simple "hello world" program, written in Python 3, to build and install on your amd64 based computing device.
 
+Inspiration:
+- https://forum.snapcraft.io/t/filenotfounderror-while-snapping-python-program/18306
+- https://forum.snapcraft.io/t/failed-to-generate-snap-metadata-errors/8955
+- https://github.com/nom666nom/numpy-dice-hy
+
 [This page](https://snapcraft.io/docs/python-apps) isn't great. Someone needs to update it.
 
 For this, I'm using Ubuntu 18.04.
