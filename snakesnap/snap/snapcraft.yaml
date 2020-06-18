@@ -1,0 +1,32 @@
+# Welcome to snapcraft.yaml. The default file isn't too exciting, and there's some comments left in it by the snapcraft devs that you should pay attention to if you actually want to publish your snap.
+
+name: snakesnap # I changed this to match the name of our project.
+base: core18 # It's the 20's, so you need Core18 in order to do anything useful.
+version: '0.1' # This doesn't matter for now
+summary: It's a snap. Whoopie! # Nor does this
+description: |
+  This is my-snap's description. You have a paragraph or two to tell the
+  most important story about your snap. Keep it under 100 words though,
+  we live in tweetspace and your description wants to look good in the snap
+  store.
+  #Nor does the above! It's a description of your snap, you get the point!
+
+# These options have to do with how locked down your snap is. For the time being, to reduce complexity, leave these alone.
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+# Now for the main show: Parts and Apps. They're what make your snap, your snap. We'll need one of each.
+parts:
+  snakesnap:
+      source: . # This is where you point Snapcraft at your source code. This can point at github links or whatever else, but we want to tell Snapcraft that everything it needs is right here, in this directory.
+      plugin: python # Unfortunately, we'll need the `python` plugin to make this work.
+      python-version: 'python3' # We're using python3, so we gotta let Snapcraft know that.
+      python-packages: # We need one package, setuptools, for later, but I'm also tossing in cryptoauthlib to demonstrate how this works. Basically, if your code needs you to `pip install` something to work, drop whatever that is in this list.
+        - cryptoauthlib
+        - setuptools
+
+#Here's your app. Basically this'll just run your python script when you call it on the command line after installing the app.
+apps:
+    snakesnap:
+        command: bin/snakesnap.py
+
