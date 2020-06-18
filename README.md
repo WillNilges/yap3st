@@ -4,9 +4,9 @@ This is Yet Another Python3 Snap Tutorial
 
 I hate computers.
 
-And I hate snaps. They're cumbersome and annoying, and this took me 6 hours to get right, so here are, as of June 18, 2020, the steps for getting a simple "hello world" program, written in Python 3, to build and install on your amd64 based computing device.
+This took me 6 hours to get right, so here are, as of June 18, 2020, the steps for getting a simple "hello world" program, written in Python 3, to build and install on your amd64 based computing device.
 
-[This page](https://snapcraft.io/docs/python-apps) sucks and is useless. Someone needs to update it.
+[This page](https://snapcraft.io/docs/python-apps) isn't great. Someone needs to update it.
 
 For this, I'm using Ubuntu 18.04.
 
