@@ -28,5 +28,5 @@ parts:
 #Here's your app. Basically this'll just run your python script when you call it on the command line after installing the app.
 apps:
     snakesnap:
-        command: bin/snakesnap.py
+        command: lib/python3.6/site-packages/snakesnap/snakesnap.py
 

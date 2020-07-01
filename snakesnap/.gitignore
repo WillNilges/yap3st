@@ -1,0 +1,8 @@
+build/
+dist/
+*.egg-info
+*.snap
+parts/
+prime/
+stage/
+

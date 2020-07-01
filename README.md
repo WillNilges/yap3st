@@ -25,7 +25,7 @@ Then, create a snap environment.
 snapcraft init
 ```
 
-This command creates a `snapcraft.yaml` which is the beating heart of your snap build environment, well, unless you're making a Python snap, in which case you also need [setup](https://setuptools.readthedocs.io/en/latest/).
+This command creates a `snapcraft.yaml` which is the beating heart of your snap build environment, well, unless you're making a Python snap, in which case you also need [setuptools](https://setuptools.readthedocs.io/en/latest/).
 
 Your file tree probably looks like this, assuming you're in `yap3st`.
 
@@ -77,7 +77,7 @@ parts:
 #Here's your app. Basically this'll just run your python script when you call it on the command line after installing the app.
 apps:
     snakesnap:
-        command: bin/snakesnap.py
+        command: lib/python3.6/site-packages/snakesnap/snakesnap.py
 ```
 
 </details>
@@ -97,11 +97,11 @@ if __name__ == "__main__":
     main()
 ```
 
-Throw this script into `bin/snakesnap.py` and `snakesnap/snakesnap.py`. Don't ask me why, Snapcraft is just like that.
+Throw this script into `snakesnap/snakesnap.py`. That's the package we're gonna make for this.
 
-Also, run this command: `touch snakesnap/__init__.py`. This'll tell setup that this is a package.
+Also, run this command: `touch snakesnap/__init__.py`. This'll tell setuptools that this is a package.
 
-### I'm sorry, "setup?"
+### I'm sorry, "setuptools?"
 
 Yea dawg, that's how Snapcraft typically builds python packages for some reason. The point is you'll need a `setup.py` that looks like this:
 
@@ -111,17 +111,16 @@ setup(
     name="snakesnap",
     version="0.1",
     packages=['snakesnap'],
-    scripts = ['bin/snakesnap.py'],
     install_requires=['cryptoauthlib'],
 )
 ```
 
 ### Is that it?
 
-Shoot, dawg, I think so. Do this:
+Shoot, dawg, I think so. Do this (or just run craft.sh):
 
 ```
-python setup.py bdist_wheel && snapcraft
+python3 setup.py bdist_wheel && snapcraft
 ```
 
 If you see `Snapped snakesnap_0.1_amd64.snap`, do this:
