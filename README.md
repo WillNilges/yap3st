@@ -2,9 +2,7 @@
 
 This is Yet Another Python3 Snap Tutorial
 
-I hate computers.
-
-This took me 6 hours to get right, so here are, as of June 18, 2020, the steps for getting a simple "hello world" program, written in Python 3, to build and install on your amd64 based computing device.
+When I started working on Snaps, I had a lot of trouble setting up a Python snap due to confusion over `setuptools`. So, to possibly save some confusion, here are, as of July 1, 2020, the steps for getting a simple "hello world" program, written in Python 3, to build and install on your amd64 based computing device.
 
 Inspiration:
 - https://forum.snapcraft.io/t/filenotfounderror-while-snapping-python-program/18306
@@ -17,7 +15,7 @@ For this, I'm using Ubuntu 18.04.
 
 ### Making an environment
 
-First, you're gonna wanna make a directory and initialize a snap project. We'll be working from this repo folder in my Documents because my comptuer files are about twice as organized as my life. That is to say, a complete mess, and detonating a grenade in the directory would probably _reduce_ the entropy.
+First, make a directory and initialize a snap project. We'll be working from this repo folder in my Documents.
 
 ```
 mkdir ~/Documents/yap3st/snakesnap
@@ -55,7 +53,7 @@ I'm just gonna fill this out and leave comments in the file. You can follow alon
 # Welcome to snapcraft.yaml. The default file isn't too exciting, and there's some comments left in it by the snapcraft devs that you should pay attention to if you actually want to publish your snap.
 
 name: snakesnap # I changed this to match the name of our project.
-base: core18 # It's the 20s, so you'll need Core18 to do anything useful.
+base: core18 # I'm gonna use Core18 as an example. Your options are core16, core18, and core20™.
 version: '0.1' # This doesn't matter for now
 summary: It's a snap. Whoopie! # Nor does this
 description: |
@@ -122,7 +120,7 @@ setup(
 
 ### Is that it?
 
-Shoot, dawg, I think so. Do this (or just run craft.sh):
+I think so. Do this (or just run craft.sh):
 
 ```
 python3 setup.py bdist_wheel && snapcraft
@@ -156,6 +154,6 @@ $ snakesnap
 Hello world!
 ```
 
-Congrats, you have a snap. Go home.
+Congrats, you have a snap.
 
 (To uninstall it do `sudo snap remove snakesnap`).
